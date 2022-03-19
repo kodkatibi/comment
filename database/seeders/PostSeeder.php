@@ -10,7 +10,6 @@ class PostSeeder extends Seeder
 {
     public function run(Faker $faker)
     {
-        DB::table('posts')->truncate();
 
         $content = '<p>' . implode('</p><p>', $faker->paragraphs(4)) . '</p>';
 
