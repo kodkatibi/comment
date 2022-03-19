@@ -10,6 +10,6 @@ class PostController extends Controller
     public function index()
     {
         $posts = DB::table('posts')->get();
-        return PostResource::collection($posts);
+        return $this->response(PostResource::collection($posts));
     }
 }

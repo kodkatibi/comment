@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 
 class CommentResource extends JsonResource
 {
@@ -17,7 +18,7 @@ class CommentResource extends JsonResource
             'id' => $this->id,
             'writerName' => $this->writer_name,
             'comment' => $this->content,
-            'createdDate' => $this->created_at,
+            'createdDate' => Carbon::make($this->created_at)->isoFormat('DD-MM-YYYY HH:mm'),
             'subComment' => self::collection($this->childComments)
         ];
     }

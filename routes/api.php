@@ -18,5 +18,6 @@ Route::prefix('post')->group(function () {
 });
 
 Route::prefix('comment')->group(function () {
-    Route::post('/', [\App\Http\Controllers\CommentsController::class, 'index']);
+    Route::get('/', [\App\Http\Controllers\CommentsController::class, 'index']);
+    Route::post('/save', [\App\Http\Controllers\CommentsController::class, 'store']);
 });
