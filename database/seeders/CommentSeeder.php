@@ -13,7 +13,7 @@ class CommentSeeder extends Seeder
     {
         $postId = DB::table('posts')->pluck('id')[0];
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 40; $i++) {
 
             $rand = rand(1, 30);
 
