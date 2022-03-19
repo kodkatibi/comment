@@ -13,12 +13,17 @@ class CommentSeeder extends Seeder
     {
         $postId = DB::table('posts')->pluck('id')[0];
 
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 0; $i < 100; $i++) {
+
+            $rand = rand(1, 30);
+
             $data = [
                 'post_id' => $postId,
                 'writer_name' => $faker->name,
-                'content' => $faker->text
+                'content' => $faker->text,
+                'parent_id' => $rand % 3 == 0 ? $rand : null
             ];
+
             Comment::create($data);
         }
 
