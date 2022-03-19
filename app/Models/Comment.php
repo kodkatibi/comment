@@ -11,11 +11,6 @@ class Comment extends Model
         return $this->hasMany('App\Models\Comment', 'parent_id', 'id');
     }
 
-    public function childOn()
-    {
-
-    }
-
     public function parentComment()
     {
         return $this->belongsTo('App\Models\Comment', 'parent_id', 'id');
