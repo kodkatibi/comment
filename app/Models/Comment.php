@@ -8,11 +8,11 @@ class Comment extends Model
 {
     public function childComments()
     {
-        return $this->hasMany('App\Models\Comment', 'parent_id', 'id');
+        return $this->hasMany(self::class, 'parent_id');
     }
 
     public function parentComment()
     {
-        return $this->belongsTo('App\Models\Comment', 'parent_id', 'id');
+        return $this->belongsTo(self::class, 'parent_id');
     }
 }
