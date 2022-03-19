@@ -2,42 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CommentCollection;
+use App\Http\Resources\CommentResource;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
-
-    public function create()
-    {
-        //
+        $comments = Comment::with('childComments')->whereNull('parent_id')->get();
+        return CommentResource::collection($comments);
     }
 
     public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(Comment $comment)
-    {
-        //
-    }
-
-    public function edit(Comment $comment)
-    {
-        //
-    }
-
-    public function update(Request $request, Comment $comment)
-    {
-        //
-    }
-
-    public function destroy(Comment $comment)
     {
         //
     }
